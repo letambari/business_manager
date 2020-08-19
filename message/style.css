@@ -1,0 +1,63 @@
+*
+{
+	margin: 0;
+	padding: 0;
+	
+	font-family: 'Montserrat', sans-serif;
+}
+body
+{
+	background: #f4f4f4;
+}
+.login
+{
+	background: #fff;
+	margin:5% 3%;
+	padding: 50px 40px;
+	box-shadow: 5px 10px 18px #888888;
+}
+input, select
+{
+	height:40px;
+	background-color: #f4f4f4;
+	border:0;
+	width:90%;
+	padding:0 5%;
+	margin: 5px 0px;
+	
+}
+input[type=submit]
+{
+	background: #4AF190;
+	width:100%;
+	color:#000;
+}
+input[type=submit]:hover
+{
+	background: #2CDA75;
+	width:100%;
+	color:#fff;
+	cursor: pointer;
+}
+h3
+{
+	background: transparent;
+	margin-bottom: 10px;
+	text-decoration: underline;
+}
+a{
+	color:blue;
+}
+.select
+{
+	width: 100%!important;
+}
+
+@media only screen and (max-device-width: 980px)
+{
+	.login
+	{
+	margin:10%;
+	padding: 100px;
+	}
+}

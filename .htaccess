@@ -1,0 +1,71 @@
+
+RewriteEngine on  
+  
+RewriteRule ^ABOUT  about.php [NC,L]
+RewriteRule ^CONTACT  contact.php [NC,L]
+RewriteRule ^HOME  home.php [NC,L] 
+RewriteRule ^COURSE  course.php [NC,L]
+RewriteRule ^GALLERY  gallery.php [NC,L]
+RewriteRule ^SERVICES  services.php [NC,L]
+RewriteRule ^COURSES  course-details.php [NC,L]
+RewriteRule ^SERVICE  service-details.php [NC,L]
+RewriteRule ^WORK-SPACE  work.php [NC,L]
+RewriteRule ^LOGIN  login.php [NC,L]
+RewriteRule ^REGISTER  register.php [NC,L]
+RewriteRule ^EMPLOYEES  employees.php [NC,L]
+RewriteRule ^DEPARTMENTS departments.php [NC,L]
+RewriteRule ^DESIGNATIONS designations.php [NC,L]
+RewriteRule ^CLIENTS clients.php [NC,L]
+RewriteRule ^PROJECTS projects.php [NC,L]
+RewriteRule ^TASKS tasks.php [NC,L]
+RewriteRule ^SETTINGS settings.php [NC,L]
+RewriteRule ^LOCALIZATION localization.php [NC,L]
+RewriteRule ^CLIENT-PROFILE client-profile.php [NC,L]
+RewriteRule ^PROFILE profile.php [NC,L]
+RewriteRule ^LOGOUT logout.php [NC,L]
+RewriteRule ^EDITDEPT editdept.php [NC,L]
+RewriteRule ^PROJECT-VIEW project-view.php [NC,L]
+RewriteRule ^DELETETASK deletetask.php [NC,L]
+RewriteRule ^INVOICES invoices.php [NC,L]
+RewriteRule ^CREATE-INVOICE create-invoice.php [NC,L]
+RewriteRule ^INVOICE-VIEW invoice-view.php [NC,L]
+RewriteRule ^EDIT-INVOICE edit-invoice.php [NC,L]
+RewriteRule ^DELETE-INVOICE delete-invoice.php [NC,L]
+RewriteRule ^PAYMENT payments.php [NC,L]
+RewriteRule ^INVSTATUS invstatus.php [NC,L]
+RewriteRule ^CREATE-EXPENSE create-expense.php [NC,L]
+RewriteRule ^EXPENSES expenses.php [NC,L]
+RewriteRule ^EDIT-EXPENSE edit-expense.php [NC,L]
+RewriteRule ^EXPENSE-STATUS expense-status.php [NC,L]
+RewriteRule ^DELETE-EXPENSE delete-expense.php [NC,L]
+RewriteRule ^EXPENSE-DETAILS expense-details.php [NC,L]
+RewriteRule ^DAILYREPORTS dailyreports.php [NC,L]
+RewriteRule ^DAILYRESULTS dailyresults.php [NC,L]
+RewriteRule ^MONTHLYREPORTS monthlyreports.php [NC,L]
+RewriteRule ^MONTHLYRESULTS monthlyresults.php [NC,L]
+RewriteRule ^YEARLYREPORTS yearlyreports.php [NC,L]
+RewriteRule ^YEARLYRESULTS yearlyresults.php [NC,L]
+RewriteRule ^ALLREPORTS allreports.php [NC,L]
+RewriteRule ^ALLRESULTS allresults.php [NC,L]
+RewriteRule ^EXPENSEREPORT expensereport.php [NC,L]
+RewriteRule ^CHATS chats.php [NC,L]
+RewriteRule ^MESSAGES messages.php [NC,L]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RewriteRule ^IMAGE/([a-zA-Z0-9\-=&_@\.\,\)\(]*)/([a-zA-Z0-9\-=&_@\.\,\)\(]*)/([a-zA-Z0-9\-=&_@\.\,\)\(]*)$ /image_folder/image.php?param1=$1&param2=$2&param3=$3 [NC,L]
+RewriteRule ^IMAGE/([a-zA-Z0-9\-=&_@\.\,\)\(]*)/([a-zA-Z0-9\-=&_@\.\,\)\(]*)$ /image_folder/image.php?param1=$1&param2=$2 [NC,L]
+RewriteRule ^IMAGE/([a-zA-Z0-9\-=&_@\.\,\)\(]*)$ /image_folder/image.php?param1=$1 [NC,L]
+RewriteRule ^IMAGE image_folder/image.php [NC,L]

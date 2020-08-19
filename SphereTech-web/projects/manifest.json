@@ -1,0 +1,14 @@
+{
+    "name": "Sphere Technologies",
+    "short_name": "SphereTech",
+    "theme_color": "#2196f3",
+    "background_color": "#ffffff",
+    "display": "minimal-ui",
+    "scope": "/",
+    "start_url": "https://spheretechnologies.website/",
+    "url": "https://spheretechnologies.website",
+    "lang": "",
+    "icons": [],
+    "screenshots": [],
+    "orientation": "portrait"
+}
