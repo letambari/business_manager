@@ -266,7 +266,7 @@ function ajax_desgn(){
     // Create our XMLHttpRequest object
     var hr = new XMLHttpRequest();
     // Create some variables we need to send to our PHP file
-    var url = "try2.php";
+    var url = "ajax_desgn.php";
     var tl = document.getElementById("title").value;
     var us = document.getElementById("userID").value;
     var cc = document.getElementById("company_code").value;

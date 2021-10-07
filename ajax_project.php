@@ -54,6 +54,10 @@ if ($count_employee1 == 1) {
 	# code...
 	$sql = "INSERT INTO project (project_title, start_date, end_date, rate, priority, description, leader_id, client_id, user_id, company_id, Status) VALUES ('$project_name', '$start', '$end_date', '$rate', '$Priority', '$Description', '$project_lead', '$client', '$userID', '$company_id', 'Pending')";
 	$query = mysqli_query($db_conx, $sql);
+	$last_id = mysqli_insert_id($db_conx);
+
+	$sql = "INSERT INTO projectleaders (project_id, leader_id, user_id, company_id) VALUES ('$last_id', '$project_lead', '$userID', '$company_id')";
+	$query = mysqli_query($db_conx, $sql);
 	
 } else{
 

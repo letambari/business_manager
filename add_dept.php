@@ -24,7 +24,7 @@ while ($row = mysqli_fetch_array($query)) {
 
 }
 
-echo $count_employee;
+//echo $count_employee;
 
 if ($departments == $title) {
 	# code...

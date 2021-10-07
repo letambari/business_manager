@@ -15,7 +15,7 @@
 							<div class="col">
 								<h3 class="page-title"><?php echo $project_titles; ?></h3>
 								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index">Dashboard</a></li>
+									<li class="breadcrumb-item"><a href="http://localhost/business_manager/projects">Dashboard</a></li>
 									<li class="breadcrumb-item active">Project</li>
 								</ul>
 							</div>

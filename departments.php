@@ -37,7 +37,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-<?php echo $getdpt; ?>                     
+                                                <?php echo $getdpt; ?>                     
                               
                                     </tbody>
                                 </table>

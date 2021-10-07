@@ -6,7 +6,10 @@ if($user_ok != true){
 }
 
 ?>
+
 <?php 
+// functions that generates random keys.
+
 
 /*function generatekey(){
   $keylength = 8;
@@ -61,10 +64,13 @@ function generatekey($db_conx){
 }
 
 //echo generatekey($con);
-
-
 ?>
+
+
+
 <?php
+// storing all the variables to empty variables.
+
 $CompanyName = '';
 $adminPhoto = '';
 $adminControl = '';
@@ -113,6 +119,18 @@ $thedetails2 = '';
 $edesignation_name = '';
 //$currentchat = '';
 //$_SESSION['currentchat'] = '';
+$count_project = 0;
+$count_client = 0;
+$count_task = 0;
+$count_employee = 0;
+$getemp = '';
+$getcmp = '';
+$getdpt = '';
+$getdesgn = '';
+$getclient = '';
+$getclient2 = '';
+$task = '';
+
 
 if ($user_ok == true) {
 
@@ -125,17 +143,6 @@ if ($user_ok == true) {
   
 }
 
-$count_project = 0;
-$count_client = 0;
-$count_task = 0;
-$count_employee = 0;
-$getemp = '';
-$getcmp = '';
-$getdpt = '';
-$getdesgn = '';
-$getclient = '';
-$getclient2 = '';
-$task = '';
 
 $sql_users = "SELECT * FROM users WHERE id = '$log_id' AND username = '$log_username'";
 $query_users = mysqli_query($db_conx, $sql_users);
@@ -215,8 +222,9 @@ $query_count_client = mysqli_query($db_conx, $sql_count_client);
                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_client"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                 </div>
                 </div> -->
-                <h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="client-profileclient-profile?CLIENTID='.$c_clientID.'">'.$company.'</a></h4>
-                <h5 class="user-name m-t-10 mb-0 text-ellipsis"><a href="client-profile">'.$e_firstname.' '.$e_lastname.'</a></h5>
+                
+                <h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="client-profileclient-profile?CLIENTID='.$c_clientID.'">'.$e_firstname.' '.$e_lastname.'</a></h4>
+                <h3 class="user-name m-t-10 mb-0 text-ellipsis" style="color:blue">'.$company.'</h3>
             <!--    <div class="small text-muted">CEO</div> -->
                 <a href="chat" class="btn btn-white btn-sm m-t-10">Message</a>
                 <a href="client-profile?CLIENTID='.$c_clientID.'" class="btn btn-white btn-sm m-t-10">View Profile</a>
@@ -366,38 +374,26 @@ $query_count_departments = mysqli_query($db_conx, $sql_count_departments);
  }
 
 
+// getting the desgination and its departments
+ $sql_count_employee = "SELECT designation.designation_name, designation.designation_id, 
+ departments.department_id, departments.department_name, designation.company_id, designation.user_id FROM designation 
+ INNER JOIN departments ON designation.department_id = departments.department_id
+ WHERE designation.company_id = '$log_username' AND designation.user_id = '$log_id' AND departments.company_id = '$log_username' AND departments.user_id = '$log_id'";
 
- $sql_count_employee = "SELECT * FROM designation WHERE company_id = '$log_username' AND user_id = '$log_id'";
 $query_count_employee = mysqli_query($db_conx, $sql_count_employee);
-
-
-
  while ($row_employee = mysqli_fetch_array($query_count_employee)) {
   
   $designation_id = $row_employee['designation_id'];
   $designation_name = $row_employee['designation_name'];
   $department_id = $row_employee['department_id'];
+  $designation_department_name = $row_employee['department_name'];
   $company_id = $row_employee['company_id'];
   $user_id = $row_employee['user_id'];
 
-$sql_count_employee2 = "SELECT * FROM departments WHERE company_id = '$log_username' AND user_id = '$log_id' AND department_id = '$department_id'";
-$query_count_employee2 = mysqli_query($db_conx, $sql_count_employee2);
-
- $count_employee2 = mysqli_num_rows($query_count_employee2);
-
- while ($row_employee2 = mysqli_fetch_array($query_count_employee2)) {
-  
-  
-  $department_name2 = $row_employee2['department_name'];
-  $company_id2 = $row_employee2['company_id'];
-  $user_id2 = $row_employee2['user_id'];
-
-    
-
   $getdesgn .= '<tbody><tr>
-                      <td>2</td>
+                      <td>1</td>
                       <td>'.$designation_name.'</td>
-                      <td>'.$department_name2.'</td>
+                      <td>'.$designation_department_name.'</td>
                       <td class="text-right">
                                             <div class="dropdown dropdown-action">
                           <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -410,7 +406,6 @@ $query_count_employee2 = mysqli_query($db_conx, $sql_count_employee2);
                       </tr>
                       </tbody>
         ';
- }
 
 }}
 
@@ -938,6 +933,7 @@ while ($kkk = mysqli_fetch_array($inquery)) {
   //    $countask2 = mysqli_num_rows($yougetthetask);
 
   
+  // getting the employee project details
   $gettheemployee = "SELECT * FROM employees WHERE user_id = '$log_id' AND company_id = '$log_username' AND employee_id = '$inner_projectleader_id'";
   $youget = mysqli_query($db_conx, $gettheemployee);
     $countam = mysqli_num_rows($youget);
@@ -946,7 +942,7 @@ while ($kkk = mysqli_fetch_array($inquery)) {
       # code...
       $inner_employee_firstname = $ccc['e_firstname'];
       $inner_employee_lastname = $ccc['e_lastname'];
-
+    }
       $thedetails .= '<div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
                    <div class="card">
                     <div class="card-body">
@@ -957,7 +953,7 @@ while ($kkk = mysqli_fetch_array($inquery)) {
                           <a data-target="#delete_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                         </div>
                       </div>
-                      <h4 class="project-title"><a href="project-view?projectsID='.$project_id.'&userID='.$user_id.'&company_id='.$company_id.'"><?php //echo $project_id; ?>'.$inner_project_title.'</a></h4>
+                      <h4 class="project-title"><a href="project-view?projectsID='.$inner_project_id.'&userID='.$user_id.'&company_id='.$company_id.'"><?php //echo $project_id; ?>'.$inner_project_title.'</a></h4>
                     <!--  <small class="block text-ellipsis m-b-15">
                         <span class="text-xs"></span><span class="text-muted">open tasks, </span>
                         <span class="text-xs"></span><span class="text-muted">tasks completed</span>
@@ -1008,7 +1004,7 @@ while ($kkk = mysqli_fetch_array($inquery)) {
                     </div>
                   </div>
               </div>';
-    }
+    
 
    }
     

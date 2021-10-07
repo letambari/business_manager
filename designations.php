@@ -39,7 +39,7 @@
 										</tr>
 									</thead>
 									
-										
+									
 										
 											<?php echo $getdesgn; ?>
 										
@@ -101,13 +101,13 @@ $query_count_departments = mysqli_query($db_conx, $sql_count_departments);
 
 
                                     <div class="form-group">
-                                        <label>user id <span class="text-danger">*</span></label>
-                                        <input name="userID" id="userID" value="<?php echo $log_id; ?>" class="form-control" type="text">
+                                        <!-- <label>user id <span class="text-danger">*</span></label> -->
+                                        <input name="userID" id="userID" value="<?php echo $log_id; ?>" class="form-control" type="hidden">
                                     </div> 
 
                                     <div class="form-group">
                                         <label>company code <span class="text-danger">*</span></label>
-                                        <input name="company_code" id="company_code" value="<?php echo $log_username; ?>" class="form-control" type="text">
+                                        <input name="company_code" id="company_code" value="<?php echo $log_username; ?>" class="form-control" type="text" disabled>
                                     </div>
 
                                     <div class="submit-section">
