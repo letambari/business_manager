@@ -1506,9 +1506,18 @@ $contacts = '';
                 </a>
               </li>'; 
   }
+
+
+  //getting the current chat of the user.
 // $currentchat = '';
+if(!isset($_GET['currentchat'])){
+ // echo $currentchat;
+ $currentchat = '';
+ $_SESSION['currentchat'] = $currentchat;
+}
 if (isset($_GET['currentchat'])) {
   # code...
+  
   $withoutcontact = '';
  
   $currentchat = $_GET['currentchat'];
@@ -1585,7 +1594,7 @@ if (isset($_GET['currentchat'])) {
 }
 
 } else{
-
+  $currentchat = '';
   $withoutcontact = '<div class="user-details mr-auto">
                       <div class="float-left chat-img">
                         <a class="avatar" href="#" title="<?php echo $ContactPerson; ?>">
